@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body  %}
+<div class="contact_section">
+   <div class="row">
+     <div class="col-md-6 background_bg">
+       <div class="contact_bg">
+         <div class="input_main">
+           <div class="container">
+
+             <form action="add" method="POST" >
+  {% csrf_token %}
+  <input type="text" name="Name" placeholder="enter your name"><br>
+  <input type="text" name="DOB" placeholder="enter your DOB"><br>
+  <input type="text" name="age" placeholder="enter your age"><br>
+  <input type="text" name="Gender" placeholder="enter your gender"><br>
+  <input type="text" name="Phone_no" placeholder="enter your phone number"><br>
+  <input type="email" name="email_id" placeholder="enter your email id"><br>
+  <input type="text" name="address" placeholder="enter your address"><br>
+  <select>
+
+    <option>computer science</option>
+  <option>commerce</option>
+  <option>science</option>
+  <option>humanities</option>
+  <option>arts</option>
+
+</select>
+<select>
+
+  <option>BCA</option>
+  <option>BCom</option>
+  <option>BSc</option>
+  <option>BBA</option>
+  <option>BFA</option>
+  </select>
+  <select>
+    <option>purpose</option>
+    <option>enquiry</option>
+    <option>place order</option>
+    <option>return</option>
+  </select><br>
+  <label>materials provide</label>
+  <input type="checkbox">debit Note Book
+  <input type="checkbox">Pen
+  <input type="checkbox">exam pappers<br>
+  <input type="submit">
+               <div>
+               {% for message in messages %}
+                 {{message}}
+               {% endfor %}
+               </div>
+</form>
+
+             </div>
+           </div>
+         </div>
+           </div>
+         </div>
+</div><br><br><br>
+<a href="{% url 'storeapp:logout' %}" class="btn btn-primary">Logout</a>
+<a href="{% url 'storeapp:home' %}">home</a>
+{% endblock %}
